@@ -52,20 +52,19 @@ class FnKeyWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # Set window properties
+        
         self.setWindowTitle("Fn Key Functions")
         self.setFixedSize(400, 700)
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
 
-        # Create central widget
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
 
-        # Layout
+       
         layout = QVBoxLayout()
         central_widget.setLayout(layout)
 
-        # Title and settings button
+       
         title_layout = QVBoxLayout()
 
         header_layout = QVBoxLayout()
@@ -77,7 +76,7 @@ class FnKeyWindow(QMainWindow):
         title.setAlignment(Qt.AlignCenter)
         header_layout.addWidget(title)
 
-        # Settings button
+        
         settings_btn = QPushButton()
         settings_btn.setIcon(QIcon.fromTheme("configure"))
         settings_btn.setFixedSize(32, 32)
@@ -85,7 +84,7 @@ class FnKeyWindow(QMainWindow):
         settings_btn.clicked.connect(self.show_settings)
         settings_btn.setToolTip("Edit F-key functions")
 
-        # Add button to layout (top-right corner)
+        
         btn_container = QWidget()
         btn_layout = QVBoxLayout()
         btn_layout.addWidget(settings_btn, 0, Qt.AlignRight)
@@ -96,10 +95,10 @@ class FnKeyWindow(QMainWindow):
         title_layout.addLayout(header_layout)
         layout.addLayout(title_layout)
 
-        # Load F-key functions
+        
         self.fn_keys = self.load_fn_keys()
 
-        # Add key descriptions
+        
         self.key_labels = {}
         for key, desc in self.fn_keys.items():
             label = QLabel(
